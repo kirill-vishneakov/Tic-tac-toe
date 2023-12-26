@@ -1,0 +1,21 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  background: rgb(173, 156, 162);
+}
+
+.selects{
+  margin: 20px;
+  display: flex;
+  justify-content: right;
+}
+
+select{
+  background: #D8E3AB;
+  width: 155px;
+  height: 40px;
+  font-size: 20px;
+}
