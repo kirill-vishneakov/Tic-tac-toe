@@ -2,15 +2,15 @@ import Place from "./Place/Place"
 import classes from './PlaceList.module.css'
 import PlayAgain from "./PlayAgain/PlayAgain"
 
-const PlaceList = ({ arrays, player, setArrays, setPlayer, clearArray, win, setWin }) => {
+const PlaceList = ({ arrays, player, setArrays, setPlayer, clearArray, win, setWin, value }) => {
     let theEnd = true
     return (
         <div >
             <h2 className={classes.player}>
-                {win === ' ' && theEnd
-                    ? `Player: ${player}`
+                {value === 'bot'
+                    ? ''
                     : win === ' '
-                        ? 'Draw'
+                        ? `Player: ${player}`
                         : `Won: ${win}`
                 }
 
@@ -21,8 +21,9 @@ const PlaceList = ({ arrays, player, setArrays, setPlayer, clearArray, win, setW
                 (
                     <div className={classes.line}>
                         {array.map((el, indexV) => {
-                            if (el == ' ') theEnd = false
+                            if (el === ' ') theEnd = false
                             return (<Place
+                                gameMod={value}
                                 key={indexV + indexG}
                                 child={el}
                                 player={player}

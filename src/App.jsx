@@ -11,17 +11,21 @@ const App = () => {
     [' ', ' ', ' ']]
   const [arrays, setArrays] = useState(clearArray)
   const [win, setWin] = useState(' ')
+  const [value, setValue] = useState('bot')
   return (
     <div>
       <Header />
       <div className="selects">
-        <select>
-          <option disabled value="gameMode">Game Mode</option>
+        <select
+          value={value}
+          onChange={(event) => setValue(event.target.value)}>
+          <option disabled>Game Mode</option>
           <option value="device">On one device</option>
           <option value="bot">With a bot</option>
         </select>
       </div>
       <PlaceList
+        value={value}
         arrays={arrays}
         setArrays={setArrays}
         player={player}
